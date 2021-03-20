@@ -2,6 +2,6 @@
 Trial Project Game
 
 Team Members:
-Josh
-Lenz
-Benz
+Josh;
+Lenz;
+Benz;
