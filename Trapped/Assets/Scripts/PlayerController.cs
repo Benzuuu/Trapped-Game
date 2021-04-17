@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     public float movespeed = 10.0f;
 
+    private Rigidbody2D playerRB;
+
     private float HorizontalInput;
     private float VerticalInput;
 
@@ -18,9 +20,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerRB = GetComponent<Rigidbody2D>();
         movement();
-
-
     }
 
     void movement()
@@ -29,8 +30,15 @@ public class PlayerController : MonoBehaviour
         HorizontalInput = Input.GetAxis("Horizontal");
         VerticalInput = Input.GetAxis("Vertical");
 
-        //assign them to translation
-        transform.Translate(Vector2.up * movespeed * Time.deltaTime * VerticalInput);
-        transform.Translate(Vector2.right * movespeed * Time.deltaTime * HorizontalInput);
+        if(HorizontalInput != 0 || VerticalInput != 0) // prevents from sliding
+        {
+            playerRB.AddForce(Vector2.up * movespeed * VerticalInput);
+            playerRB.AddForce(Vector2.right * movespeed * HorizontalInput);
+        }
+        else { playerRB.velocity = Vector2.zero;}
+
+
+
+        Debug.Log(HorizontalInput);
     }
 }
