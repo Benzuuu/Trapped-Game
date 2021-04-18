@@ -5,12 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float movespeed = 10.0f;
+    public float movespeed = 5.0f;
 
     private Rigidbody2D playerRB;
 
     private float HorizontalInput;
     private float VerticalInput;
+
+    private Vector2 moveDirection;
+
 
     void Start()
     {
@@ -30,15 +33,15 @@ public class PlayerController : MonoBehaviour
         HorizontalInput = Input.GetAxis("Horizontal");
         VerticalInput = Input.GetAxis("Vertical");
 
-        if(HorizontalInput != 0 || VerticalInput != 0) // prevents from sliding
-        {
-            playerRB.AddForce(Vector2.up * movespeed * VerticalInput);
-            playerRB.AddForce(Vector2.right * movespeed * HorizontalInput);
-        }
-        else { playerRB.velocity = Vector2.zero;}
+        moveDirection = new Vector2(HorizontalInput, VerticalInput).normalized;
+
+        //movement
+        playerRB.velocity = new Vector2(moveDirection.x * movespeed, moveDirection.y * movespeed);
+
+        //playerRB.MovePosition(Vector2.up * movespeed * VerticalInput * Time.fixedDeltaTime);
+        //playerRB.MovePosition(Vector2.right * movespeed * HorizontalInput * Time.fixedDeltaTime);
 
 
 
-        Debug.Log(HorizontalInput);
     }
 }
