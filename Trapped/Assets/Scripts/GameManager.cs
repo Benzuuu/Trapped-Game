@@ -24,8 +24,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        isGameActive = false;
 
+        isGameActive = false;
         //to be able to load the scene again ( Plays the active Scene)
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
