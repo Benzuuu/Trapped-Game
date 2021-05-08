@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
     public float movespeed = 5.0f;
+    private GameManager gameManager;
 
     private Rigidbody2D playerRB;
 
@@ -17,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -41,7 +42,14 @@ public class PlayerController : MonoBehaviour
         //playerRB.MovePosition(Vector2.up * movespeed * VerticalInput * Time.fixedDeltaTime);
         //playerRB.MovePosition(Vector2.right * movespeed * HorizontalInput * Time.fixedDeltaTime);
 
+    }
 
-
+    private void OnTriggerEnter2D(Collider2D Other)
+    {
+        if (Other.gameObject.CompareTag("Enemy"))
+        {
+            gameManager.GameOver();
+            Debug.Log("Reseted");
+        }
     }
 }
