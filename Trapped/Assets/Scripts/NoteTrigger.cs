@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class NoteTrigger : MonoBehaviour
 {
     public GameObject dialogBox;
+    public GameObject Note;
+    public GameObject Image;
     public Text dialogText;
     public string dialog;
     public bool dialogActive;
@@ -24,10 +26,14 @@ public class NoteTrigger : MonoBehaviour
             if(dialogBox.activeInHierarchy)
             {
                 dialogBox.SetActive(false);
+                Note.SetActive(false);
+                Image.SetActive(false);
             }
             else
             {
                 dialogBox.SetActive(true);
+                Image.SetActive(true);
+                Note.SetActive(true);
                 dialogText.text = dialog; // Sets Dialog to Whatever is in the Dialog 
             }
         }
@@ -45,10 +51,7 @@ public class NoteTrigger : MonoBehaviour
 
     private void OnTriggerExit2d(Collider2D Other)
     {
-        if(Other.gameObject.CompareTag("Player"))
-        {
             dialogActive = false;
             Debug.Log("I am Not Working");
-        }
     }
 }

@@ -5451,9 +5451,9 @@ Light:
   m_GameObject: {fileID: 363542219}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 1
+  m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.0754717, g: 0.06087576, b: 0.06087576, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_Intensity: 0.1
   m_Range: 10
   m_SpotAngle: 30
@@ -34384,7 +34384,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1150640164
 Rigidbody2D:
   serializedVersion: 4
