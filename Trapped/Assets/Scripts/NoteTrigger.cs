@@ -21,7 +21,7 @@ public class NoteTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Space) && dialogActive)
+        if(Input.GetKey(KeyCode.E) && dialogActive)
         {
             if(dialogBox.activeInHierarchy)
             {
@@ -49,9 +49,16 @@ public class NoteTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2d(Collider2D Other)
+    private void OnTriggerExit2D(Collider2D Other)
     {
+        if (Other.gameObject.CompareTag("Player"))
+        {
             dialogActive = false;
+            dialogBox.SetActive(false);
+            Note.SetActive(false);
+            Image.SetActive(false);
             Debug.Log("I am Not Working");
+        }
+            
     }
 }
