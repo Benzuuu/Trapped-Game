@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     public float movespeed = 5.0f;
     private GameManager gameManager;
+    public Animator animator;
 
     private Rigidbody2D playerRB;
 
@@ -19,12 +20,12 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        playerRB = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerRB = GetComponent<Rigidbody2D>();
         movement();
     }
 
@@ -33,6 +34,9 @@ public class PlayerController : MonoBehaviour
         //call for the movement
         HorizontalInput = Input.GetAxis("Horizontal");
         VerticalInput = Input.GetAxis("Vertical");
+
+        animator.SetFloat("Speed Horizontal", HorizontalInput);// Horizontal Movement
+        animator.SetFloat("Speed Vertical", VerticalInput);// Vertical Movement
 
         moveDirection = new Vector2(HorizontalInput, VerticalInput).normalized;
 

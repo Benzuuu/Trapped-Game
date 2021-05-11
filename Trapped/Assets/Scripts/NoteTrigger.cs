@@ -21,7 +21,7 @@ public class NoteTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.E) && dialogActive)
+        if(Input.GetKeyDown(KeyCode.E) && dialogActive)
         {
             if(dialogBox.activeInHierarchy)
             {
