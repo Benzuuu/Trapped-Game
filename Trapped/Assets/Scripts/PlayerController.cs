@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 moveDirection;
 
+    public bool InPuzzle;
 
     void Start()
     {
@@ -26,7 +27,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement();
+        if (InPuzzle == false)
+        {
+            movement();
+        }
     }
 
     void movement()
