@@ -6,7 +6,7 @@ using UnityEngine;
 public class Puzzle : MonoBehaviour
 {
     public GameObject PuzzleCanvas;
-    private PlayerController player;
+    private PlayerController player;// Name of the Script and what to name it when called
 
     public bool PuzzleActive;
 
@@ -21,15 +21,15 @@ public class Puzzle : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && PuzzleActive)
         {
-            if (PuzzleCanvas.activeInHierarchy)
+            if (PuzzleCanvas.activeInHierarchy)//checks if active in heirch, will close if yes. if e is pressed again
             {
                 PuzzleCanvas.SetActive(false);
                 player.InPuzzle = false;
             }
             else
             {
-                PuzzleCanvas.SetActive(true);
                 player.InPuzzle = true;
+                PuzzleCanvas.SetActive(true);
             }
         }
     }
@@ -47,8 +47,6 @@ public class Puzzle : MonoBehaviour
     {
         if (Other.gameObject.CompareTag("Player"))
         {
-            player.InPuzzle = false;
-            PuzzleCanvas.SetActive(false);
             PuzzleActive = false;
             Debug.Log("I am Not Working");
         }

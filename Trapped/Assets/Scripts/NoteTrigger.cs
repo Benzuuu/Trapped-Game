@@ -23,7 +23,7 @@ public class NoteTrigger : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && dialogActive) // on button click if dialogActive is true
         {
-            if(dialogBox.activeInHierarchy)//checks if the DialogBox is active in the Heirch, if yes then it sets them as inactive on button click
+            if(dialogBox.activeInHierarchy)//checks if the DialogBox is active in the Heirchy, if yes then it sets them as inactive on button click or if the press again
             {
                 dialogBox.SetActive(false);
                 Note.SetActive(false);

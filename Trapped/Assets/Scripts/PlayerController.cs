@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
     public float movespeed = 5.0f;
-    private GameManager gameManager;
+    private GameManager gameManager; //Game Manager script name what to call it
     public Animator animator;
 
     private Rigidbody2D playerRB;
@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>(); // finding the game object in heirchy and gettings its component the Script
         playerRB = GetComponent<Rigidbody2D>();
     }
 
