@@ -42,6 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Floor
+    uniqueID: 1223047137
+    locked: 0
+  - name: Player
+    uniqueID: 2409536781
+    locked: 0
   - name: Puzzle Layer
     uniqueID: 1151619383
     locked: 0

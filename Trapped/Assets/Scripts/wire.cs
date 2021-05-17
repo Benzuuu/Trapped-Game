@@ -6,6 +6,7 @@ public class wire : MonoBehaviour
 {
     public SpriteRenderer wireEnd;
     public GameObject lightOn;
+    public GameObject GateOpen;
 
     Vector2 startPoint;
     Vector2 startPosition;
@@ -27,14 +28,16 @@ public class wire : MonoBehaviour
         foreach (Collider2D collider in colliders)
         {
             //make sure not my own collider
-            if(collider.gameObject != gameObject)
+            if (collider.gameObject != gameObject)
             {
                 //update wire to the connection point position
                 UpdateWire(collider.transform.position);
 
                 //checks if same color
-                if(transform.parent.name.Equals(collider.transform.parent.name))
+                if (transform.parent.name.Equals(collider.transform.parent.name))
                 {
+
+
                     //finish step
                     collider.GetComponent<wire>()?.Done();
                     Done();
@@ -44,7 +47,7 @@ public class wire : MonoBehaviour
                 return;
             }
         }
-        
+
 
         //update wire
         UpdateWire(newPosition);
@@ -55,6 +58,7 @@ public class wire : MonoBehaviour
     {
         //turn on the Light
         lightOn.SetActive(true);
+        GateOpen.SetActive(false);
 
         Destroy(this);
     }
