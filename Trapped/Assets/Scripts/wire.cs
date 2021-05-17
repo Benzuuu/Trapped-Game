@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class wire : MonoBehaviour
 {
+
+    private GameManager gameManager; //Game Manager script name what to call it
+
+
     public SpriteRenderer wireEnd;
     public GameObject lightOn;
-    public GameObject GateOpen;
 
     Vector2 startPoint;
     Vector2 startPosition;
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>(); // finding the game object in heirchy and gettings its component the Script
+
         startPoint = transform.parent.position;
         startPosition = transform.position;
     }
@@ -58,7 +63,7 @@ public class wire : MonoBehaviour
     {
         //turn on the Light
         lightOn.SetActive(true);
-        GateOpen.SetActive(false);
+        gameManager.Wiring(1);
 
         Destroy(this);
     }
